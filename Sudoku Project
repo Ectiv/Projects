@@ -1,0 +1,68 @@
+function getRow(puzzle, row) {
+if(row < 0 || row >= puzzle){
+  throw new Error('Invalid row Index')
+}
+return puzzle[row]
+}
+
+function getColumn(puzzle, col) {
+if(col < 0 || col >= puzzle[0].length){
+  throw new Error('Invalid column Index')
+}
+  let column = [];
+  for(i = 0; i < puzzle.length; i++){
+    column.push(puzzle[i][col])
+  }
+return column
+}
+
+function getSection(puzzle, x, y) {
+let section = []
+let startRow = y * 3;
+let startCol = x * 3;
+for (i = startRow; i < startRow + 3; i++){
+  for(j = startCol; j < startCol + 3; j++){
+    section.push(puzzle[i][j])
+  }
+}
+return section
+}
+
+function includes1To9(arr) {
+const uniqueValues = new Set(arr);
+if(uniqueValues.size !== 9){
+  return false;
+}
+for(i = 1; i <= 9; i++){
+  if (!uniqueValues.has(i)){
+    return false
+  }
+}
+
+return true
+}
+
+function sudokuIsValid(puzzle) {
+  
+  for(let i = 0; i < 9; i++){
+    if(!includes1To9(getRow(puzzle, i))) {
+      return false;
+    }
+  }
+
+
+for(j = 0; j < 9; j++){
+  if(!includes1To9(getColumn(puzzle, j))){
+    return false
+  }
+}
+
+for (x = 0; x < 3; x++){
+  for(y = 0; y < 3; y++){
+    if(!includes1To9(getSection(puzzle, x, y))){
+      return false
+    }
+  }
+}
+return true
+}
