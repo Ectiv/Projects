@@ -1,0 +1,30 @@
+function golfScore(par, strokesfor){
+ if(strokesfor == 1){
+  golfScore = "Hole-in-one!"
+ }
+ else if(strokesfor == par){
+  golfScore = "Par"
+ }
+ else if(strokesfor == (par - 1)){
+  golfScore = "Birdie"
+ }
+ else if(strokesfor == (par - 2)){
+  golfScore = "Eagle"
+ }
+ else if(strokesfor == (par - 3)){
+  golfScore = "Double Eagle"
+ }
+ else if(strokesfor == (par + 3)){
+  golfScore = "Go Home!"
+ }
+ else if(strokesfor == (par + 2)){
+  golfScore = "Double Bogey"
+ }
+ else if(strokesfor == (par + 1)){
+  golfScore = "Bogey"
+ }
+
+
+
+ return golfScore
+}
