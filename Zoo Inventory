@@ -1,0 +1,21 @@
+function zooInventory(zoo){
+  let sentences = [];
+ for(i = 0; i < zoo.length; i++){
+ let animal = zoo[i];
+ let Name = animal[0];
+ let Species = animal[1][0];
+ let Age = animal[1][1]
+ let sentence = Name + " the " + Species + " is " + Age + "."
+ sentences.push(sentence)
+ }
+
+
+return sentences
+}
+
+
+let myZoo = [
+  ['King Kong', ['gorilla', 42]],
+  ['Nemo', ['fish', 5]],
+  ['Punxsutawney Phil', ['groundhog', 11]]
+];
